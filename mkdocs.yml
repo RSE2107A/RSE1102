@@ -1,0 +1,15 @@
+site_name: My ROS 2 Realtime Docs
+theme:
+  name: material
+
+nav:
+  - Home: index.md
+  - Setup: ros2_jazzy_installation.md
+
+markdown_extensions:
+  - toc:
+      permalink: true
+  - admonition
+  - codehilite
+  - pymdownx.superfences
+
