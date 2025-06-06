@@ -8,19 +8,19 @@
       
       
       
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.2.11">
     
     
       
-        <title>My ROS 2 Realtime Docs</title>
+        <title>🔌 UART Setup on Raspberry Pi - My ROS 2 Realtime Docs</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.8c5ef100.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.8c5ef100.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.9647289d.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.9647289d.min.css">
         
       
     
@@ -35,7 +35,7 @@
       
     
     
-    <script>__md_scope=new URL(".",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -59,7 +59,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#welcome-to-mkdocs" class="md-skip">
+        <a href="#uart-setup-on-raspberry-pi" class="md-skip">
           Skip to content
         </a>
       
@@ -73,7 +73,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="My ROS 2 Realtime Docs" class="md-header__button md-logo" aria-label="My ROS 2 Realtime Docs" data-md-component="logo">
+    <a href=".." title="My ROS 2 Realtime Docs" class="md-header__button md-logo" aria-label="My ROS 2 Realtime Docs" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -92,7 +92,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              🔌 UART Setup on Raspberry Pi
             
           </span>
         </div>
@@ -159,7 +159,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="My ROS 2 Realtime Docs" class="md-nav__button md-logo" aria-label="My ROS 2 Realtime Docs" data-md-component="logo">
+    <a href=".." title="My ROS 2 Realtime Docs" class="md-nav__button md-logo" aria-label="My ROS 2 Realtime Docs" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -176,59 +176,11 @@
 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Home
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
         Home
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#commands" class="md-nav__link">
-    Commands
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#project-layout" class="md-nav__link">
-    Project layout
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -241,7 +193,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ros2_jazzy_installation/" class="md-nav__link">
+      <a href="../ros2_jazzy_installation/" class="md-nav__link">
         Setup
       </a>
     </li>
@@ -256,7 +208,7 @@
   
   
     <li class="md-nav__item">
-      <a href="pixy2_installation/" class="md-nav__link">
+      <a href="../pixy2_installation/" class="md-nav__link">
         Pixy2 Installation
       </a>
     </li>
@@ -290,15 +242,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#commands" class="md-nav__link">
-    Commands
+  <a href="#1-edit-configuration-file" class="md-nav__link">
+    📝 1. Edit Configuration File
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#project-layout" class="md-nav__link">
-    Project layout
+  <a href="#2-add-user-to-dialout-group" class="md-nav__link">
+    👤 2. Add User to dialout Group
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-reboot-the-raspberry-pi" class="md-nav__link">
+    🔄 3. Reboot the Raspberry Pi
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-after-reboot" class="md-nav__link">
+    ✅ 4. After Reboot
   </a>
   
 </li>
@@ -317,21 +283,41 @@
                 
 
 
-<h1 id="welcome-to-mkdocs">Welcome to MkDocs<a class="headerlink" href="#welcome-to-mkdocs" title="Permanent link">&para;</a></h1>
-<p>For full documentation visit <a href="https://www.mkdocs.org">mkdocs.org</a>.</p>
-<h2 id="commands">Commands<a class="headerlink" href="#commands" title="Permanent link">&para;</a></h2>
-<ul>
-<li><code>mkdocs new [dir-name]</code> - Create a new project.</li>
-<li><code>mkdocs serve</code> - Start the live-reloading docs server.</li>
-<li><code>mkdocs build</code> - Build the documentation site.</li>
-<li><code>mkdocs -h</code> - Print help message and exit.</li>
-</ul>
-<h2 id="project-layout">Project layout<a class="headerlink" href="#project-layout" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><code>mkdocs.yml    # The configuration file.
-docs/
-    index.md  # The documentation homepage.
-    ...       # Other markdown pages, images and other files.
+<h1 id="uart-setup-on-raspberry-pi">🔌 UART Setup on Raspberry Pi<a class="headerlink" href="#uart-setup-on-raspberry-pi" title="Permanent link">&para;</a></h1>
+<p>These steps help you enable and use UART (serial communication) on a Raspberry Pi (or similar Linux SBC).</p>
+<hr />
+<h2 id="1-edit-configuration-file">📝 1. Edit Configuration File<a class="headerlink" href="#1-edit-configuration-file" title="Permanent link">&para;</a></h2>
+<p>Open the boot configuration file:</p>
+<div class="highlight"><pre><span></span><code>sudo gedit /boot/firmware/config.txt
 </code></pre></div>
+<p>Add the following <strong>at the end of the file</strong> (after <code>[all]</code> section):</p>
+<div class="highlight"><pre><span></span><code><span class="na">enable_uart</span><span class="o">=</span><span class="s">1</span><span class="w"></span>
+<span class="na">dtoverlay</span><span class="o">=</span><span class="s">disable-bt</span><span class="w"></span>
+</code></pre></div>
+<ul>
+<li><code>enable_uart=1</code>: Enables the UART serial interface.</li>
+<li><code>dtoverlay=disable-bt</code>: Disables Bluetooth, which uses the primary UART on some Pi models.</li>
+</ul>
+<hr />
+<h2 id="2-add-user-to-dialout-group">👤 2. Add User to <code>dialout</code> Group<a class="headerlink" href="#2-add-user-to-dialout-group" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>sudo usermod -aG dialout <span class="nv">$USER</span>
+</code></pre></div>
+<p>This allows your user account to access serial ports (e.g. <code>/dev/ttyS0</code>, <code>/dev/ttyUSB0</code>).</p>
+<p>You must log out and log in again (or reboot) for the changes to apply.</p>
+<hr />
+<h2 id="3-reboot-the-raspberry-pi">🔄 3. Reboot the Raspberry Pi<a class="headerlink" href="#3-reboot-the-raspberry-pi" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>sudo reboot
+</code></pre></div>
+<p>Reboots the system to apply your changes.</p>
+<hr />
+<h2 id="4-after-reboot">✅ 4. After Reboot<a class="headerlink" href="#4-after-reboot" title="Permanent link">&para;</a></h2>
+<ul>
+<li>UART should now be available at <code>/dev/ttyAMA0</code>.</li>
+</ul>
+<h1 id="-test-using-tools-like">- Test using tools like:<a class="headerlink" href="#-test-using-tools-like" title="Permanent link">&para;</a></h1>
+<h1 id="-minicom">- <code>minicom</code><a class="headerlink" href="#-minicom" title="Permanent link">&para;</a></h1>
+<h1 id="-screen">- <code>screen</code><a class="headerlink" href="#-screen" title="Permanent link">&para;</a></h1>
+<h1 id="-pythons-pyserial">- Python's <code>pyserial</code><a class="headerlink" href="#-pythons-pyserial" title="Permanent link">&para;</a></h1>
 
               
             </article>
@@ -341,26 +327,6 @@ docs/
       </main>
       
         <footer class="md-footer">
-  
-    <nav class="md-footer__inner md-grid" aria-label="Footer">
-      
-      
-        
-        <a href="ros2_jazzy_installation/" class="md-footer__link md-footer__link--next" aria-label="Next: Setup" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              Setup
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
-          </div>
-        </a>
-      
-    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -382,10 +348,10 @@ docs/
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": ".", "features": [], "search": "assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="assets/javascripts/bundle.748e2769.min.js"></script>
+      <script src="../assets/javascripts/bundle.748e2769.min.js"></script>
       
     
   </body>
