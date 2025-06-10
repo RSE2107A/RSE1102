@@ -59,7 +59,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#ros2_ws-build-and-source-instructions" class="md-skip">
+        <a href="#ros2-python-package-for-pixy2-detection-pixy2_uart_pkg" class="md-skip">
           Skip to content
         </a>
       
@@ -287,51 +287,79 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-download-ros2_ws-into-your-home-folder" class="md-nav__link">
-    📥 1. Download ros2_ws into Your Home Folder
+  <a href="#introduction" class="md-nav__link">
+    Introduction
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-build-the-workspace" class="md-nav__link">
-    🛠 2. Build the Workspace
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-source-the-setup-script" class="md-nav__link">
-    🔁 3. Source the Setup Script
+  <a href="#installation-of-python3-serial" class="md-nav__link">
+    Installation of python3-serial
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-after-code-updates" class="md-nav__link">
-    🔄 4. After Code Updates
+  <a href="#setup-guide" class="md-nav__link">
+    Setup Guide
   </a>
   
-    <nav class="md-nav" aria-label="🔄 4. After Code Updates">
+    <nav class="md-nav" aria-label="Setup Guide">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#colcon-build-compiles-and-prepares-your-code" class="md-nav__link">
-    🔧 colcon build — Compiles and Prepares Your Code
+  <a href="#1-setup-ros-2-jazzy-environment" class="md-nav__link">
+    1. Setup ROS 2 Jazzy environment
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#why-its-necessary" class="md-nav__link">
-    Why It's Necessary
+  <a href="#3-create-the-python-package-inside-the-workspace" class="md-nav__link">
+    3. Create the Python package inside the workspace
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#important-note-python-users-too" class="md-nav__link">
-    🧠 Important Note (Python Users Too!)
+  <a href="#4-add-the-node-script" class="md-nav__link">
+    4. Add the node script
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-edit-setuppy" class="md-nav__link">
+    5. Edit setup.py
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-build-the-workspace" class="md-nav__link">
+    6. Build the workspace
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-source-your-workspace" class="md-nav__link">
+    7. Source your workspace
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-run-the-pixy2-uart-node" class="md-nav__link">
+    8. Run the Pixy2 UART node
   </a>
   
 </li>
@@ -342,8 +370,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#summary" class="md-nav__link">
-    📌 Summary
+  <a href="#notes" class="md-nav__link">
+    Notes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#license" class="md-nav__link">
+    License
   </a>
   
 </li>
@@ -352,6 +387,21 @@
   
 </nav>
       
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../P1/" class="md-nav__link">
+        Serial Implementation
+      </a>
     </li>
   
 
@@ -383,51 +433,79 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-download-ros2_ws-into-your-home-folder" class="md-nav__link">
-    📥 1. Download ros2_ws into Your Home Folder
+  <a href="#introduction" class="md-nav__link">
+    Introduction
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-build-the-workspace" class="md-nav__link">
-    🛠 2. Build the Workspace
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-source-the-setup-script" class="md-nav__link">
-    🔁 3. Source the Setup Script
+  <a href="#installation-of-python3-serial" class="md-nav__link">
+    Installation of python3-serial
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-after-code-updates" class="md-nav__link">
-    🔄 4. After Code Updates
+  <a href="#setup-guide" class="md-nav__link">
+    Setup Guide
   </a>
   
-    <nav class="md-nav" aria-label="🔄 4. After Code Updates">
+    <nav class="md-nav" aria-label="Setup Guide">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#colcon-build-compiles-and-prepares-your-code" class="md-nav__link">
-    🔧 colcon build — Compiles and Prepares Your Code
+  <a href="#1-setup-ros-2-jazzy-environment" class="md-nav__link">
+    1. Setup ROS 2 Jazzy environment
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#why-its-necessary" class="md-nav__link">
-    Why It's Necessary
+  <a href="#3-create-the-python-package-inside-the-workspace" class="md-nav__link">
+    3. Create the Python package inside the workspace
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#important-note-python-users-too" class="md-nav__link">
-    🧠 Important Note (Python Users Too!)
+  <a href="#4-add-the-node-script" class="md-nav__link">
+    4. Add the node script
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-edit-setuppy" class="md-nav__link">
+    5. Edit setup.py
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-build-the-workspace" class="md-nav__link">
+    6. Build the workspace
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-source-your-workspace" class="md-nav__link">
+    7. Source your workspace
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-run-the-pixy2-uart-node" class="md-nav__link">
+    8. Run the Pixy2 UART node
   </a>
   
 </li>
@@ -438,8 +516,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#summary" class="md-nav__link">
-    📌 Summary
+  <a href="#notes" class="md-nav__link">
+    Notes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#license" class="md-nav__link">
+    License
   </a>
   
 </li>
@@ -458,72 +543,169 @@
                 
 
 
-<h1 id="ros2_ws-build-and-source-instructions">ros2_ws Build and Source Instructions<a class="headerlink" href="#ros2_ws-build-and-source-instructions" title="Permanent link">&para;</a></h1>
-<p>Follow the steps below to build and source your ROS 2 workspace:</p>
-<h2 id="1-download-ros2_ws-into-your-home-folder">📥 1. Download <code>ros2_ws</code> into Your Home Folder<a class="headerlink" href="#1-download-ros2_ws-into-your-home-folder" title="Permanent link">&para;</a></h2>
-<p>If you haven’t cloned or created the <code>ros2_ws</code> yet, do that first.</p>
-<p>Then:
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span> ~/ros2_ws
-git clone ...
-</code></pre></div></p>
-<h2 id="2-build-the-workspace">🛠 2. Build the Workspace<a class="headerlink" href="#2-build-the-workspace" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>colcon build
+<h1 id="ros2-python-package-for-pixy2-detection-pixy2_uart_pkg">ROS2 Python Package for Pixy2 Detection: pixy2_uart_pkg<a class="headerlink" href="#ros2-python-package-for-pixy2-detection-pixy2_uart_pkg" title="Permanent link">&para;</a></h1>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
+<p><strong>pixy2_uart_pkg</strong> is a Python ROS 2 Jazzy package that interfaces with the Pixy2 vision sensor via UART communication. It initializes the Pixy2 using the Pixy SDK, reads detected object blocks at 10 Hz, publishes the block count on a ROS 2 topic (<code>/pixy_block_count</code>), and sends the count over UART to an external device.</p>
+<p>This package allows ROS 2 applications to integrate Pixy2 sensor data and communicate with external hardware using UART.</p>
+<hr />
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
+<ul>
+<li>ROS 2 Jazzy installed and properly sourced</li>
+<li>Pixy2 SDK and Python bindings installed</li>
+<li><code>python3-serial</code> Python package installed for UART communication</li>
+<li>A Pixy2 sensor connected to the UART port <code>/dev/ttyAMA0</code> or update accordingly</li>
+</ul>
+<hr />
+<h2 id="installation-of-python3-serial">Installation of python3-serial<a class="headerlink" href="#installation-of-python3-serial" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>sudo apt update
+sudo apt install python3-serial
 </code></pre></div>
-<h2 id="3-source-the-setup-script">🔁 3. Source the Setup Script<a class="headerlink" href="#3-source-the-setup-script" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="nb">source</span> install/setup.bash
-</code></pre></div>
-<blockquote>
-<p>✅ This step ensures your ROS 2 environment is properly configured for the current terminal session.</p>
-</blockquote>
-<h2 id="4-after-code-updates">🔄 4. After Code Updates<a class="headerlink" href="#4-after-code-updates" title="Permanent link">&para;</a></h2>
-<p>Any time you update the code in your package, <strong>you need to</strong>:</p>
-<div class="highlight"><pre><span></span><code>colcon build
+<h2 id="setup-guide">Setup Guide<a class="headerlink" href="#setup-guide" title="Permanent link">&para;</a></h2>
+<h3 id="1-setup-ros-2-jazzy-environment">1. Setup ROS 2 Jazzy environment<a class="headerlink" href="#1-setup-ros-2-jazzy-environment" title="Permanent link">&para;</a></h3>
+<p>Open a terminal and source your ROS 2 Jazzy installation:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">source</span> /opt/ros/jazzy/setup.bash
+<span class="sb">````</span>
+
+<span class="c1">### 2. Create a ROS 2 workspace (if you don’t have one)</span>
+
+<span class="sb">```</span>bash
+mkdir -p ~/ros2_ws/src
+<span class="nb">cd</span> ~/ros2_ws
+colcon build
 <span class="nb">source</span> install/setup.bash
 </code></pre></div>
-<h3 id="colcon-build-compiles-and-prepares-your-code">🔧 colcon build — Compiles and Prepares Your Code<a class="headerlink" href="#colcon-build-compiles-and-prepares-your-code" title="Permanent link">&para;</a></h3>
-<p>In ROS 2, building your workspace is essential for changes to take effect.</p>
-<h3 id="why-its-necessary">Why It's Necessary<a class="headerlink" href="#why-its-necessary" title="Permanent link">&para;</a></h3>
-<p>ROS 2 uses <strong>CMake</strong> (for C++) and the <strong>ament</strong> build system under the hood. When you run:</p>
-<div class="highlight"><pre><span></span><code>colcon build
+<h3 id="3-create-the-python-package-inside-the-workspace">3. Create the Python package inside the workspace<a class="headerlink" href="#3-create-the-python-package-inside-the-workspace" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> ~/ros2_ws/src
+ros2 pkg create --build-type ament_python pixy2_uart_pkg
 </code></pre></div>
-<p>You are doing the following:</p>
-<ul>
-<li>🧱 <strong>Compiling your C++ source files</strong></li>
-<li>🔗 <strong>Linking or copying Python scripts and launch files</strong></li>
-<li>🗂 <strong>Generating the <code>install/</code> layout</strong>, which ROS 2 uses to resolve dependencies and locate packages</li>
-</ul>
-<blockquote>
-<p>⚠️ <strong>If you don’t run <code>colcon build</code>, ROS 2 will not detect any of your new code, files, or updates.</strong></p>
-</blockquote>
-<h3 id="important-note-python-users-too">🧠 Important Note (Python Users Too!)<a class="headerlink" href="#important-note-python-users-too" title="Permanent link">&para;</a></h3>
-<p>Even if your project is written entirely in Python (which is not compiled), you <strong>still need to run <code>colcon build</code></strong>. Here's why:</p>
-<ul>
-<li>It ensures that the <code>install/</code> directory is properly updated.</li>
-<li>ROS 2 tools like <code>ros2 run</code> and <code>ros2 launch</code> look for packages in the <code>install/</code> tree.</li>
-</ul>
-<h2 id="summary">📌 Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Action</th>
-<th>Purpose</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>colcon build</code></td>
-<td>Rebuilds your workspace, regenerates install layout</td>
-</tr>
-<tr>
-<td><code>source install/setup.bash</code></td>
-<td>Makes newly built packages available to ROS 2 commands</td>
-</tr>
-</tbody>
-</table>
-<p>After <code>colcon build</code>, always remember to:</p>
+<p>This creates the package folder structure with essential setup files.</p>
+<h3 id="4-add-the-node-script">4. Add the node script<a class="headerlink" href="#4-add-the-node-script" title="Permanent link">&para;</a></h3>
+<p>Inside the package folder, create <code>pixy2_uart_node.py</code> under <code>pixy2_uart_pkg/</code> with the following content:</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python3</span>
+
+<span class="kn">import</span> <span class="nn">rclpy</span>
+<span class="kn">from</span> <span class="nn">rclpy.node</span> <span class="kn">import</span> <span class="n">Node</span>
+<span class="kn">from</span> <span class="nn">std_msgs.msg</span> <span class="kn">import</span> <span class="n">Int32</span>
+<span class="kn">import</span> <span class="nn">pixy</span>
+<span class="kn">from</span> <span class="nn">pixy</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">ctypes</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">serial</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="k">class</span> <span class="nc">PixyUARTNode</span><span class="p">(</span><span class="n">Node</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="s1">&#39;pixy_uart_publisher&#39;</span><span class="p">)</span>
+
+        <span class="c1"># ROS 2 publisher</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">publisher_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_publisher</span><span class="p">(</span><span class="n">Int32</span><span class="p">,</span> <span class="s1">&#39;pixy_block_count&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+
+        <span class="c1"># Pixy2 init</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Initializing Pixy2...&quot;</span><span class="p">)</span>
+        <span class="n">pixy</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
+        <span class="n">pixy</span><span class="o">.</span><span class="n">change_prog</span><span class="p">(</span><span class="s2">&quot;color_connected_components&quot;</span><span class="p">)</span>
+
+        <span class="c1"># UART init</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">uart</span> <span class="o">=</span> <span class="n">serial</span><span class="o">.</span><span class="n">Serial</span><span class="p">(</span><span class="s1">&#39;/dev/ttyAMA0&#39;</span><span class="p">,</span> <span class="n">baudrate</span><span class="o">=</span><span class="mi">115200</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;UART connected on /dev/ttyAMA0&quot;</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">serial</span><span class="o">.</span><span class="n">SerialException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Failed to open UART port: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">uart</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="c1"># Block buffer</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">blocks</span> <span class="o">=</span> <span class="n">BlockArray</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">frame</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="c1"># Timer: 10 Hz</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">timer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_timer</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">timer_callback</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">timer_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">count</span> <span class="o">=</span> <span class="n">pixy</span><span class="o">.</span><span class="n">ccc_get_blocks</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">blocks</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">count</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Frame </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">frame</span><span class="si">}</span><span class="s1"> - Detected </span><span class="si">{</span><span class="n">count</span><span class="si">}</span><span class="s1"> blocks&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">frame</span> <span class="o">+=</span> <span class="mi">1</span>
+
+            <span class="c1"># Publish block count</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="n">Int32</span><span class="p">()</span>
+            <span class="n">msg</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">count</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">publisher_</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+            <span class="c1"># Send via UART</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">uart</span><span class="p">:</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">uart</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">bytes</span><span class="p">([</span><span class="n">count</span><span class="p">]))</span>  <span class="c1"># send as a single byte</span>
+                <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;UART write error: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="n">rclpy</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">)</span>
+    <span class="n">node</span> <span class="o">=</span> <span class="n">PixyUARTNode</span><span class="p">()</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">rclpy</span><span class="o">.</span><span class="n">spin</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">KeyboardInterrupt</span><span class="p">:</span>
+        <span class="n">node</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Shutting down.&#39;</span><span class="p">)</span>
+    <span class="k">finally</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">node</span><span class="o">.</span><span class="n">uart</span><span class="p">:</span>
+            <span class="n">node</span><span class="o">.</span><span class="n">uart</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="n">node</span><span class="o">.</span><span class="n">destroy_node</span><span class="p">()</span>
+        <span class="n">rclpy</span><span class="o">.</span><span class="n">shutdown</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</code></pre></div>
+<p>Make sure the script is executable:</p>
+<div class="highlight"><pre><span></span><code>chmod +x ~/ros2_ws/src/pixy2_uart_pkg/pixy2_uart_pkg/pixy2_uart_node.py
+</code></pre></div>
+<h3 id="5-edit-setuppy">5. Edit <code>setup.py</code><a class="headerlink" href="#5-edit-setuppy" title="Permanent link">&para;</a></h3>
+<p>Modify the <code>setup.py</code> file in the <code>pixy2_uart_pkg</code> folder to register the node as a console script:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">setup</span>
+
+<span class="n">package_name</span> <span class="o">=</span> <span class="s1">&#39;pixy2_uart_pkg&#39;</span>
+
+<span class="n">setup</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="n">package_name</span><span class="p">,</span>
+    <span class="n">version</span><span class="o">=</span><span class="s1">&#39;0.0.0&#39;</span><span class="p">,</span>
+    <span class="n">packages</span><span class="o">=</span><span class="p">[</span><span class="n">package_name</span><span class="p">],</span>
+    <span class="n">install_requires</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;setuptools&#39;</span><span class="p">,</span> <span class="s1">&#39;pyserial&#39;</span><span class="p">],</span>
+    <span class="n">zip_safe</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">maintainer</span><span class="o">=</span><span class="s1">&#39;Your Name&#39;</span><span class="p">,</span>
+    <span class="n">maintainer_email</span><span class="o">=</span><span class="s1">&#39;your.email@example.com&#39;</span><span class="p">,</span>
+    <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Python package for Pixy2 UART communication in ROS 2 Jazzy&#39;</span><span class="p">,</span>
+    <span class="n">license</span><span class="o">=</span><span class="s1">&#39;Apache License 2.0&#39;</span><span class="p">,</span>
+    <span class="n">tests_require</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;pytest&#39;</span><span class="p">],</span>
+    <span class="n">entry_points</span><span class="o">=</span><span class="p">{</span>
+        <span class="s1">&#39;console_scripts&#39;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s1">&#39;pixy2_uart_node = pixy2_uart_pkg.pixy2_uart_node:main&#39;</span><span class="p">,</span>
+        <span class="p">],</span>
+    <span class="p">},</span>
+<span class="p">)</span>
+</code></pre></div>
+<h3 id="6-build-the-workspace">6. Build the workspace<a class="headerlink" href="#6-build-the-workspace" title="Permanent link">&para;</a></h3>
+<p>Go to the root of your workspace and build with colcon:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> ~/ros2_ws
+colcon build
+</code></pre></div>
+<h3 id="7-source-your-workspace">7. Source your workspace<a class="headerlink" href="#7-source-your-workspace" title="Permanent link">&para;</a></h3>
+<p>After building, source your workspace overlay:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">source</span> install/setup.bash
 </code></pre></div>
-<p>This activates your latest build and registers it with your current terminal session.</p>
+<h3 id="8-run-the-pixy2-uart-node">8. Run the Pixy2 UART node<a class="headerlink" href="#8-run-the-pixy2-uart-node" title="Permanent link">&para;</a></h3>
+<p>Run your node with:</p>
+<div class="highlight"><pre><span></span><code>ros2 run pixy2_uart_pkg pixy2_uart_node
+</code></pre></div>
+<p>You should see log messages indicating Pixy2 initialization, block detections, and UART transmissions.</p>
+<hr />
+<h2 id="notes">Notes<a class="headerlink" href="#notes" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Adjust UART device path (<code>/dev/ttyAMA0</code>) if your hardware uses a different port.</li>
+<li>Ensure Pixy2 SDK Python bindings and <code>python3-serial</code> are installed in your environment.</li>
+<li>This node publishes the detected block count as a standard <code>Int32</code> ROS 2 message, which can be subscribed to by other nodes.</li>
+</ul>
+<hr />
+<h2 id="license">License<a class="headerlink" href="#license" title="Permanent link">&para;</a></h2>
+<p>This project is licensed under the Apache License 2.0.</p>
+<hr />
 
               
             </article>
@@ -551,6 +733,21 @@ git clone ...
           </div>
         </a>
       
+      
+        
+        <a href="../P1/" class="md-footer__link md-footer__link--next" aria-label="Next: Serial Implementation" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Serial Implementation
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
       
     </nav>
   

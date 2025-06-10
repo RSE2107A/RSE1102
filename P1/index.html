@@ -13,7 +13,7 @@
     
     
       
-        <title>UART Setup - CodeMine≈ Gold Mining for Coders and Robotics Developers</title>
+        <title>Serial Implementation - CodeMine≈ Gold Mining for Coders and Robotics Developers</title>
       
     
     
@@ -59,7 +59,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#uart-setup-on-raspberry-pi" class="md-skip">
+        <a href="#spin-serial-communication-implementation-breakdown" class="md-skip">
           Skip to content
         </a>
       
@@ -92,7 +92,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              UART Setup
+              Serial Implementation
             
           </span>
         </div>
@@ -236,73 +236,11 @@
 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          UART Setup
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../UART/" class="md-nav__link">
         UART Setup
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1-edit-configuration-file" class="md-nav__link">
-    📝 1. Edit Configuration File
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-add-user-to-dialout-group" class="md-nav__link">
-    👤 2. Add User to dialout Group
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-reboot-the-raspberry-pi" class="md-nav__link">
-    🔄 3. Reboot the Raspberry Pi
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-after-reboot" class="md-nav__link">
-    ✅ 4. After Reboot
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -328,11 +266,21 @@
 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../P1/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Serial Implementation
       </a>
+      
     </li>
   
 
@@ -357,42 +305,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1-edit-configuration-file" class="md-nav__link">
-    📝 1. Edit Configuration File
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-add-user-to-dialout-group" class="md-nav__link">
-    👤 2. Add User to dialout Group
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-reboot-the-raspberry-pi" class="md-nav__link">
-    🔄 3. Reboot the Raspberry Pi
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-after-reboot" class="md-nav__link">
-    ✅ 4. After Reboot
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -405,41 +317,147 @@
                 
 
 
-<h1 id="uart-setup-on-raspberry-pi">🔌 UART Setup on Raspberry Pi<a class="headerlink" href="#uart-setup-on-raspberry-pi" title="Permanent link">&para;</a></h1>
-<p>These steps help you enable and use UART (serial communication) on a Raspberry Pi (or similar Linux SBC).</p>
+<h1 id="spin-serial-communication-implementation-breakdown">Spin Serial Communication: Implementation Breakdown<a class="headerlink" href="#spin-serial-communication-implementation-breakdown" title="Permanent link">&para;</a></h1>
+<h1 id="spin-serial-communication-example">Spin Serial Communication Example<a class="headerlink" href="#spin-serial-communication-example" title="Permanent link">&para;</a></h1>
+<p>This tutorial demonstrates how to implement basic serial communication on the Parallax Propeller microcontroller using the Spin language and the <code>FullDuplexSerial</code> object. The program waits for a byte from the serial port and prints both the character and its ASCII value to the terminal.</p>
 <hr />
-<h2 id="1-edit-configuration-file">📝 1. Edit Configuration File<a class="headerlink" href="#1-edit-configuration-file" title="Permanent link">&para;</a></h2>
-<p>Open the boot configuration file:</p>
-<div class="highlight"><pre><span></span><code>sudo gedit /boot/firmware/config.txt
-</code></pre></div>
-<p>Add the following <strong>at the end of the file</strong> (after <code>[all]</code> section):</p>
-<div class="highlight"><pre><span></span><code><span class="na">enable_uart</span><span class="o">=</span><span class="s">1</span><span class="w"></span>
-<span class="na">dtoverlay</span><span class="o">=</span><span class="s">disable-bt</span><span class="w"></span>
-</code></pre></div>
+<h2 id="objective">🧪 Objective<a class="headerlink" href="#objective" title="Permanent link">&para;</a></h2>
 <ul>
-<li><code>enable_uart=1</code>: Enables the UART serial interface.</li>
-<li><code>dtoverlay=disable-bt</code>: Disables Bluetooth, which uses the primary UART on some Pi models.</li>
+<li>Set up serial communication with the Propeller chip.</li>
+<li>Receive a byte from the user.</li>
+<li>Display the received character and its ASCII code.</li>
 </ul>
 <hr />
-<h2 id="2-add-user-to-dialout-group">👤 2. Add User to <code>dialout</code> Group<a class="headerlink" href="#2-add-user-to-dialout-group" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>sudo usermod -aG dialout <span class="nv">$USER</span>
+<h2 id="complete-spin-code">📜 Complete Spin Code<a class="headerlink" href="#complete-spin-code" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>CON
+  _clkmode = xtal1 + pll16x
+  _xinfreq = 5_000_000
+
+OBJ
+  serial : &quot;FullDuplexSerial&quot;
+
+VAR
+  long received
+
+PUB start
+  serial.start(31, 30, 0, 115200)
+
+  serial.str(string(&quot;=== P1 Ready to receive ===&quot;, 13, 10))
+
+  repeat
+    received := serial.rx   &#39; Wait for byte
+    serial.str(string(&quot;Received: &#39;&quot;))
+    serial.tx(received)
+    serial.str(string(&quot;&#39; (ASCII: &quot;))
+    serial.dec(received)
+    serial.str(string(&quot;)&quot;, 13, 10))
 </code></pre></div>
-<p>This allows your user account to access serial ports (e.g. <code>/dev/ttyS0</code>, <code>/dev/ttyUSB0</code>).</p>
-<p>You must log out and log in again (or reboot) for the changes to apply.</p>
 <hr />
-<h2 id="3-reboot-the-raspberry-pi">🔄 3. Reboot the Raspberry Pi<a class="headerlink" href="#3-reboot-the-raspberry-pi" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>sudo reboot
+<h2 id="implementation-breakdown">⚙️ Implementation Breakdown<a class="headerlink" href="#implementation-breakdown" title="Permanent link">&para;</a></h2>
+<h3 id="1-clock-configuration">1. Clock Configuration<a class="headerlink" href="#1-clock-configuration" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>CON
+  _clkmode = xtal1 + pll16x
+  _xinfreq = 5_000_000
+````
+
+This section sets the system clock:
+
+* `xtal1`: Selects an external crystal oscillator.
+* `pll16x`: Enables a 16x frequency multiplier using PLL.
+* `_xinfreq`: Specifies the external crystal frequency as 5 MHz.
+
+➡️ Combined, this configures the Propeller&#39;s system clock to **80 MHz**.
+
+---
+
+### 2. Including Serial Object
+
+```spin
+OBJ
+  serial : &quot;FullDuplexSerial&quot;
 </code></pre></div>
-<p>Reboots the system to apply your changes.</p>
-<hr />
-<h2 id="4-after-reboot">✅ 4. After Reboot<a class="headerlink" href="#4-after-reboot" title="Permanent link">&para;</a></h2>
 <ul>
-<li>UART should now be available at <code>/dev/ttyAMA0</code>.</li>
+<li>Imports the <code>FullDuplexSerial</code> object, which handles bidirectional UART communication.</li>
+<li>This object must be available in your project folder or library.</li>
 </ul>
-<!-- - Test using tools like:
-  - `minicom`
-  - `screen`
-  - Python's `pyserial`-->
+<hr />
+<h3 id="3-declaring-variables">3. Declaring Variables<a class="headerlink" href="#3-declaring-variables" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>VAR
+  long received
+</code></pre></div>
+<ul>
+<li>Declares a 32-bit variable named <code>received</code> to store the incoming byte from the serial line.</li>
+</ul>
+<hr />
+<h3 id="4-starting-serial-communication">4. Starting Serial Communication<a class="headerlink" href="#4-starting-serial-communication" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>serial.start(31, 30, 0, 115200)
+</code></pre></div>
+<p>Initializes the serial driver:</p>
+<ul>
+<li><code>31</code>: RX pin (receives data from PC)</li>
+<li><code>30</code>: TX pin (sends data to PC)</li>
+<li><code>0</code>: Mode setting (standard)</li>
+<li><code>115200</code>: Baud rate</li>
+</ul>
+<hr />
+<h3 id="5-sending-ready-message">5. Sending Ready Message<a class="headerlink" href="#5-sending-ready-message" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>serial.str(string(&quot;=== P1 Ready to receive ===&quot;, 13, 10))
+</code></pre></div>
+<ul>
+<li>Sends a string to indicate that the Propeller is ready.</li>
+<li><code>13 = Carriage Return</code>, <code>10 = Line Feed</code> for newline formatting.</li>
+</ul>
+<hr />
+<h3 id="6-receiving-and-displaying-characters">6. Receiving and Displaying Characters<a class="headerlink" href="#6-receiving-and-displaying-characters" title="Permanent link">&para;</a></h3>
+<h4 id="wait-for-a-character">Wait for a character:<a class="headerlink" href="#wait-for-a-character" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>repeat
+  received := serial.rx
+</code></pre></div>
+<ul>
+<li>Waits for a character to arrive from the serial interface.</li>
+<li>Stores it into the <code>received</code> variable.</li>
+</ul>
+<h4 id="display-the-character-and-ascii-value">Display the character and ASCII value:<a class="headerlink" href="#display-the-character-and-ascii-value" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>  serial.str(string(&quot;Received: &#39;&quot;))
+  serial.tx(received)
+  serial.str(string(&quot;&#39; (ASCII: &quot;))
+  serial.dec(received)
+  serial.str(string(&quot;)&quot;, 13, 10))
+</code></pre></div>
+<p>This part:</p>
+<ul>
+<li>Displays the received character.</li>
+<li>Shows its ASCII decimal value.</li>
+<li>Outputs the formatted string to the terminal.</li>
+</ul>
+<hr />
+<h2 id="example-output">💻 Example Output<a class="headerlink" href="#example-output" title="Permanent link">&para;</a></h2>
+<p>When you send characters to the Propeller from a terminal, you'll see responses like:</p>
+<div class="highlight"><pre><span></span><code>=== P1 Ready to receive ===
+Received: &#39;A&#39; (ASCII: 65)
+Received: &#39;b&#39; (ASCII: 98)
+Received: &#39;1&#39; (ASCII: 49)
+</code></pre></div>
+<hr />
+<h2 id="setup-instructions">🔌 Setup Instructions<a class="headerlink" href="#setup-instructions" title="Permanent link">&para;</a></h2>
+<h3 id="wiring">Wiring<a class="headerlink" href="#wiring" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Propeller Pin 31</strong> → USB-to-Serial <strong>RX</strong></li>
+<li><strong>Propeller Pin 30</strong> → USB-to-Serial <strong>TX</strong></li>
+<li><strong>GND</strong> → <strong>GND</strong></li>
+</ul>
+<h3 id="serial-terminal-settings">Serial Terminal Settings<a class="headerlink" href="#serial-terminal-settings" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Baud rate</strong>: 115200</li>
+<li><strong>Data</strong>: 8 bits</li>
+<li><strong>Parity</strong>: None</li>
+<li><strong>Stop bits</strong>: 1</li>
+</ul>
+<h3 id="loading-code">Loading Code<a class="headerlink" href="#loading-code" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Use <strong>Propeller Tool</strong> or <strong>SimpleIDE</strong> to load the code onto the microcontroller.</li>
+</ul>
+<hr />
 
               
             </article>
@@ -453,7 +471,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../pixy2_installation/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Pixy2 Installation" rel="prev">
+        <a href="../ros2_ws/" class="md-footer__link md-footer__link--prev" aria-label="Previous: ROS2 Workspace and Package" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -462,26 +480,11 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              Pixy2 Installation
-            </div>
-          </div>
-        </a>
-      
-      
-        
-        <a href="../ros2_ws/" class="md-footer__link md-footer__link--next" aria-label="Next: ROS2 Workspace and Package" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
-              </span>
               ROS2 Workspace and Package
             </div>
           </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
-          </div>
         </a>
+      
       
     </nav>
   

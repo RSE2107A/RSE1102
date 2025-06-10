@@ -13,7 +13,7 @@
     
     
       
-        <title>UART Setup - CodeMine≈ Gold Mining for Coders and Robotics Developers</title>
+        <title>ros2_ws Build and Source Instructions - CodeMine≈ Gold Mining for Coders and Robotics Developers</title>
       
     
     
@@ -59,7 +59,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#uart-setup-on-raspberry-pi" class="md-skip">
+        <a href="#ros2_ws-build-and-source-instructions" class="md-skip">
           Skip to content
         </a>
       
@@ -92,7 +92,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              UART Setup
+              ros2_ws Build and Source Instructions
             
           </span>
         </div>
@@ -236,73 +236,11 @@
 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          UART Setup
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../UART/" class="md-nav__link">
         UART Setup
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1-edit-configuration-file" class="md-nav__link">
-    📝 1. Edit Configuration File
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-add-user-to-dialout-group" class="md-nav__link">
-    👤 2. Add User to dialout Group
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-reboot-the-raspberry-pi" class="md-nav__link">
-    🔄 3. Reboot the Raspberry Pi
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-after-reboot" class="md-nav__link">
-    ✅ 4. After Reboot
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -364,29 +302,63 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-edit-configuration-file" class="md-nav__link">
-    📝 1. Edit Configuration File
+  <a href="#1-download-ros2_ws-into-your-home-folder" class="md-nav__link">
+    📥 1. Download ros2_ws into Your Home Folder
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-add-user-to-dialout-group" class="md-nav__link">
-    👤 2. Add User to dialout Group
+  <a href="#2-build-the-workspace" class="md-nav__link">
+    🛠 2. Build the Workspace
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-reboot-the-raspberry-pi" class="md-nav__link">
-    🔄 3. Reboot the Raspberry Pi
+  <a href="#3-source-the-setup-script" class="md-nav__link">
+    🔁 3. Source the Setup Script
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-after-reboot" class="md-nav__link">
-    ✅ 4. After Reboot
+  <a href="#4-after-code-updates" class="md-nav__link">
+    🔄 4. After Code Updates
+  </a>
+  
+    <nav class="md-nav" aria-label="🔄 4. After Code Updates">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#colcon-build-compiles-and-prepares-your-code" class="md-nav__link">
+    🔧 colcon build — Compiles and Prepares Your Code
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-its-necessary" class="md-nav__link">
+    Why It's Necessary
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#important-note-python-users-too" class="md-nav__link">
+    🧠 Important Note (Python Users Too!)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    📌 Summary
   </a>
   
 </li>
@@ -405,41 +377,72 @@
                 
 
 
-<h1 id="uart-setup-on-raspberry-pi">🔌 UART Setup on Raspberry Pi<a class="headerlink" href="#uart-setup-on-raspberry-pi" title="Permanent link">&para;</a></h1>
-<p>These steps help you enable and use UART (serial communication) on a Raspberry Pi (or similar Linux SBC).</p>
-<hr />
-<h2 id="1-edit-configuration-file">📝 1. Edit Configuration File<a class="headerlink" href="#1-edit-configuration-file" title="Permanent link">&para;</a></h2>
-<p>Open the boot configuration file:</p>
-<div class="highlight"><pre><span></span><code>sudo gedit /boot/firmware/config.txt
+<h1 id="ros2_ws-build-and-source-instructions">ros2_ws Build and Source Instructions<a class="headerlink" href="#ros2_ws-build-and-source-instructions" title="Permanent link">&para;</a></h1>
+<p>Follow the steps below to build and source your ROS 2 workspace:</p>
+<h2 id="1-download-ros2_ws-into-your-home-folder">📥 1. Download <code>ros2_ws</code> into Your Home Folder<a class="headerlink" href="#1-download-ros2_ws-into-your-home-folder" title="Permanent link">&para;</a></h2>
+<p>If you haven’t cloned or created the <code>ros2_ws</code> yet, do that first.</p>
+<p>Then:
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> ~/ros2_ws
+git clone ...
+</code></pre></div></p>
+<h2 id="2-build-the-workspace">🛠 2. Build the Workspace<a class="headerlink" href="#2-build-the-workspace" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>colcon build
 </code></pre></div>
-<p>Add the following <strong>at the end of the file</strong> (after <code>[all]</code> section):</p>
-<div class="highlight"><pre><span></span><code><span class="na">enable_uart</span><span class="o">=</span><span class="s">1</span><span class="w"></span>
-<span class="na">dtoverlay</span><span class="o">=</span><span class="s">disable-bt</span><span class="w"></span>
+<h2 id="3-source-the-setup-script">🔁 3. Source the Setup Script<a class="headerlink" href="#3-source-the-setup-script" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="nb">source</span> install/setup.bash
 </code></pre></div>
+<blockquote>
+<p>✅ This step ensures your ROS 2 environment is properly configured for the current terminal session.</p>
+</blockquote>
+<h2 id="4-after-code-updates">🔄 4. After Code Updates<a class="headerlink" href="#4-after-code-updates" title="Permanent link">&para;</a></h2>
+<p>Any time you update the code in your package, <strong>you need to</strong>:</p>
+<div class="highlight"><pre><span></span><code>colcon build
+<span class="nb">source</span> install/setup.bash
+</code></pre></div>
+<h3 id="colcon-build-compiles-and-prepares-your-code">🔧 colcon build — Compiles and Prepares Your Code<a class="headerlink" href="#colcon-build-compiles-and-prepares-your-code" title="Permanent link">&para;</a></h3>
+<p>In ROS 2, building your workspace is essential for changes to take effect.</p>
+<h3 id="why-its-necessary">Why It's Necessary<a class="headerlink" href="#why-its-necessary" title="Permanent link">&para;</a></h3>
+<p>ROS 2 uses <strong>CMake</strong> (for C++) and the <strong>ament</strong> build system under the hood. When you run:</p>
+<div class="highlight"><pre><span></span><code>colcon build
+</code></pre></div>
+<p>You are doing the following:</p>
 <ul>
-<li><code>enable_uart=1</code>: Enables the UART serial interface.</li>
-<li><code>dtoverlay=disable-bt</code>: Disables Bluetooth, which uses the primary UART on some Pi models.</li>
+<li>🧱 <strong>Compiling your C++ source files</strong></li>
+<li>🔗 <strong>Linking or copying Python scripts and launch files</strong></li>
+<li>🗂 <strong>Generating the <code>install/</code> layout</strong>, which ROS 2 uses to resolve dependencies and locate packages</li>
 </ul>
-<hr />
-<h2 id="2-add-user-to-dialout-group">👤 2. Add User to <code>dialout</code> Group<a class="headerlink" href="#2-add-user-to-dialout-group" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>sudo usermod -aG dialout <span class="nv">$USER</span>
-</code></pre></div>
-<p>This allows your user account to access serial ports (e.g. <code>/dev/ttyS0</code>, <code>/dev/ttyUSB0</code>).</p>
-<p>You must log out and log in again (or reboot) for the changes to apply.</p>
-<hr />
-<h2 id="3-reboot-the-raspberry-pi">🔄 3. Reboot the Raspberry Pi<a class="headerlink" href="#3-reboot-the-raspberry-pi" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>sudo reboot
-</code></pre></div>
-<p>Reboots the system to apply your changes.</p>
-<hr />
-<h2 id="4-after-reboot">✅ 4. After Reboot<a class="headerlink" href="#4-after-reboot" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>⚠️ <strong>If you don’t run <code>colcon build</code>, ROS 2 will not detect any of your new code, files, or updates.</strong></p>
+</blockquote>
+<h3 id="important-note-python-users-too">🧠 Important Note (Python Users Too!)<a class="headerlink" href="#important-note-python-users-too" title="Permanent link">&para;</a></h3>
+<p>Even if your project is written entirely in Python (which is not compiled), you <strong>still need to run <code>colcon build</code></strong>. Here's why:</p>
 <ul>
-<li>UART should now be available at <code>/dev/ttyAMA0</code>.</li>
+<li>It ensures that the <code>install/</code> directory is properly updated.</li>
+<li>ROS 2 tools like <code>ros2 run</code> and <code>ros2 launch</code> look for packages in the <code>install/</code> tree.</li>
 </ul>
-<!-- - Test using tools like:
-  - `minicom`
-  - `screen`
-  - Python's `pyserial`-->
+<h2 id="summary">📌 Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Action</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>colcon build</code></td>
+<td>Rebuilds your workspace, regenerates install layout</td>
+</tr>
+<tr>
+<td><code>source install/setup.bash</code></td>
+<td>Makes newly built packages available to ROS 2 commands</td>
+</tr>
+</tbody>
+</table>
+<p>After <code>colcon build</code>, always remember to:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">source</span> install/setup.bash
+</code></pre></div>
+<p>This activates your latest build and registers it with your current terminal session.</p>
 
               
             </article>
@@ -449,41 +452,6 @@
       </main>
       
         <footer class="md-footer">
-  
-    <nav class="md-footer__inner md-grid" aria-label="Footer">
-      
-        
-        <a href="../pixy2_installation/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Pixy2 Installation" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              Pixy2 Installation
-            </div>
-          </div>
-        </a>
-      
-      
-        
-        <a href="../ros2_ws/" class="md-footer__link md-footer__link--next" aria-label="Next: ROS2 Workspace and Package" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              ROS2 Workspace and Package
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
-          </div>
-        </a>
-      
-    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
