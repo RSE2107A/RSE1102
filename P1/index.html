@@ -458,6 +458,28 @@ Received: &#39;1&#39; (ASCII: 49)
 <li>Use <strong>Propeller Tool</strong> or <strong>SimpleIDE</strong> to load the code onto the microcontroller.</li>
 </ul>
 <hr />
+<h3 id="python-code-to-communicate-with-pi-through-this-uart">Python Code to communicate with PI through this UART<a class="headerlink" href="#python-code-to-communicate-with-pi-through-this-uart" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">serial</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="c1"># Adjust the port as needed (e.g., /dev/ttyUSB0 or /dev/serial0)</span>
+<span class="n">ser</span> <span class="o">=</span> <span class="n">serial</span><span class="o">.</span><span class="n">Serial</span><span class="p">(</span><span class="s1">&#39;/dev/ttyUSB0&#39;</span><span class="p">,</span> <span class="mi">9200</span><span class="p">)</span>
+<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>  <span class="c1"># Give the connection time to settle</span>
+
+<span class="c1"># List of data bytes to send</span>
+<span class="n">data_list</span> <span class="o">=</span> <span class="p">[</span><span class="sa">b</span><span class="s1">&#39;</span><span class="se">\x7A</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa">b</span><span class="s1">&#39;</span><span class="se">\x01</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa">b</span><span class="s1">&#39;</span><span class="se">\x14</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa">b</span><span class="s1">&#39;</span><span class="se">\x00</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa">b</span><span class="s1">&#39;</span><span class="se">\x55</span><span class="s1">&#39;</span><span class="p">]</span>
+<span class="n">data_list2</span> <span class="o">=</span> <span class="p">[</span><span class="sa">b</span><span class="s1">&#39;</span><span class="se">\x7A</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa">b</span><span class="s1">&#39;</span><span class="se">\x00</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa">b</span><span class="s1">&#39;</span><span class="se">\x00</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa">b</span><span class="s1">&#39;</span><span class="se">\x00</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa">b</span><span class="s1">&#39;</span><span class="se">\x55</span><span class="s1">&#39;</span><span class="p">]</span>
+<span class="c1"># Send each data item in a loop</span>
+<span class="k">for</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">data_list</span><span class="p">:</span>
+    <span class="n">ser</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="c1">#ser.write(b&#39;\n&#39;)  # Optional: send newline if the receiver expects it</span>
+<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>   <span class="c1"># Delay between sends (adjust as needed)</span>
+<span class="k">for</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">data_list2</span><span class="p">:</span>
+    <span class="n">ser</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="c1">#ser.write(b&#39;\n&#39;)  # Optional: send newline if the receiver expects it</span>
+    <span class="c1">#time.sleep(5)   # Delay between sends (adjust as needed)</span>
+<span class="n">ser</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div>
 
               
             </article>
